@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Attendance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="container">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Attendance Tracker (Blockchain Concept)</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Mark Attendance</h2>
+                <p class="text-gray-600 mb-4">Click 'Present' or 'Absent' to record today's attendance. Each record forms a 'block' in our simulated chain.</p>
+                <div class="mb-4">
+                    <label for="studentIdInput" class="block text-gray-700 text-sm font-bold mb-2">Student ID:</label>
+                    <input type="text" id="studentIdInput" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500" placeholder="Enter Student ID">
+                </div>
+                <div class="flex space-x-4">
+                    <button id="markPresentBtn" class="flex-1 button-gradient text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Mark Present
+                    </button>
+                    <button id="markAbsentBtn" class="flex-1 button-absent text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                        Mark Absent
+                    </button>
+                </div>
+                <div id="messageBox" class="mt-4 p-3 text-sm rounded-lg text-center hidden"></div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Attendance Summary</h2>
+                <div class="space-y-3 text-lg text-gray-700">
+                    <p>Total Days Recorded: <span id="totalDays" class="font-semibold text-blue-600">0</span></p>
+                    <p>Days Present: <span id="presentDays" class="font-semibold text-green-600">0</span></p>
+                    <p>Days Absent: <span id="absentDays" class="font-semibold text-red-600">0</span></p>
+                    <p>Attendance Percentage: <span id="attendancePercentage" class="font-semibold text-purple-600">0.00%</span></p>
+                    <p>Eligibility Status (85% required): <span id="eligibilityStatus" class="font-bold text-gray-800">N/A</span></p>
+                </div>
+                <button id="clearDataBtn" class="mt-6 w-full bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                    Clear All Attendance Data
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Attendance Chain (Simulated Blockchain)</h2>
+            <p class="text-gray-600 mb-4">Each attendance record is a 'block'. Tampering with a block would invalidate its hash (shown in red).</p>
+            <div id="blockchainDisplay" class="space-y-3">
+                <p class="text-gray-500 text-center" id="noBlocksMessage">No attendance records yet. Mark some attendance to see the chain!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
